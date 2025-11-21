@@ -20,6 +20,15 @@ public class Questions {
         return prompt;
     }
 
+    public String[] getChoices()
+    {
+        return choices;
+    }
+
+    public int getCorrectIndex(){
+        return correctIndex;
+    }
+
     public String[] getChoices(){
         return choices;
     }
@@ -30,6 +39,10 @@ public class Questions {
 
     public String getExplanation(){
         return explanation;
+    }
+
+    public boolean isCorrect(int userIndex){
+        return userIndex == correctIndex;
     }
 
     public boolean isCorrect(int userIndex)
