@@ -29,6 +29,10 @@ public class Questions {
         return correctIndex;
     }
 
+    public String[] getChoices(){
+        return choices;
+    }
+
     public String getTopic(){
         return topic;
     }
@@ -40,5 +44,11 @@ public class Questions {
     public boolean isCorrect(int userIndex){
         return userIndex == correctIndex;
     }
+
+    public boolean isCorrect(int userIndex)
+    {
+        return userIndex == correctIndex;
+    }
+
 
 }
