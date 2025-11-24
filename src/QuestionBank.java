@@ -4,256 +4,24 @@ public class QuestionBank {
 
     private ArrayList<Questions> questions;
 
-    public QuestionBank(){
-    private ArrayList<Questions> questions;
-
-    public QuestionBank(){
-
-public class QuestionBank {
-    private ArrayList<Questions> questions;
-
-    public QuestionBank()
-    {
+    public QuestionBank() {
         questions = new ArrayList<Questions>();
         loadQuestions();
     }
 
-    private void loadQuestions()
-    {
-        questions.add(new Questions("What is the first element in a Java array?",
-                new String[]{"0", "1", "-1", "it depends"}, 0,
-                "arrays", "arrays start counting the index from 0" ));
+    /**
+     * Fills the questions list with all questions.
+     * Assumes class Questions has a constructor:
+     * Questions(String text, String[] choices, int correctIndex, String topic, String explanation)
+     */
+    private void loadQuestions() {
 
-        questions.add(new Questions(
-                "What value is printed by the following code?\nint[] nums = {4, 7, 2, 9, 5};" +
-                        "\nSystem.out.println(nums[nums.length - 2]);",
-                new String[]{"7", "2", "9", "5"}, 2,
-                "arrays", "nums.length - 2 is 5 - 2 = 3, so nums[3] = 9."));
-        questions.add(new Questions(
-                "Which loop correctly prints every element of an array arr?",
-                new String[]{
-                        "for(int i = 0; i <= arr.length; i++) System.out.println(arr[i]);",
-                        "for(int i = 1; i < arr.length; i++) System.out.println(arr[i]);",
-                        "for(int i = 0; i < arr.length; i++) System.out.println(arr[i]);",
-                        "for(int i = 0; i < arr.length - 1; i++) System.out.println(arr[i]);"
-                },
-                2,
-                "arrays",
-                "Arrays are traversed from index 0 to arr.length - 1."
-        ));
-
-        questions.add(new Questions(
-                "What does the following loop print?\nint count = 0;\nfor(int i = 1; i < 10; i += 3) count++;\nSystem.out.println(count);",
-                new String[]{"2", "3", "4", "9"},
-                2,
-                "loops",
-                "Values of i are 1, 4, 7 → 3 iterations, so count = 3."
-        ));
-
-       questions.add(new Questions(
-                "What value is printed by the code?\nint x = 12;\nwhile(x > 0) { x -= 5; }\nSystem.out.println(x);",
-                new String[]{"-3", "-2", "2", "0"},
-                0,
-                "loops",
-                "x goes 12 → 7 → 2 → -3 and exits the loop, printing -3."
-        ));
-
-        questions.add(new Questions(
-                "What is the result of the expression?\nboolean a = true;\nboolean b = false;\nboolean c = true;\nSystem.out.println(a && !b || !c);",
-                new String[]{"true", "false", "Compilation error", "Nothing prints"},
-                0,
-                "conditionals",
-                "a && !b is true, and true || false is true."
-        ));
-
-        questions.add(new Questions(
-                "What is printed by the following code?\nint x = 8;\nif(x > 10) System.out.println(\"A\");\nelse if(x > 5) System.out.println(\"B\");\nelse System.out.println(\"C\");",
-                new String[]{"A", "B", "C", "Nothing"},
-                1,
-                "conditionals",
-                "x > 5 is true, so 'B' is printed."
-        ));
-        questions.add(new Questions(
-                "What is printed by the following code?\nArrayList<String> list = new ArrayList<>();\nlist.add(\"A\"); list.add(\"B\"); list.add(1, \"C\");\nSystem.out.println(list);",
-                new String[]{"[A, B, C]", "[A, C, B]", "[C, A, B]", "Error"},
-                1,
-                "arrayLists",
-                "Adding at index 1 inserts C between A and B."
-        ));
-
-        questions.add(new Questions(
-                "What value is printed?\nArrayList<Integer> nums = new ArrayList<>();\nnums.add(10); nums.add(20); nums.add(30);\nnums.remove(1);\nSystem.out.println(nums.get(1));",
-                new String[]{"10", "20", "30", "Error"},
-                2,
-                "arrayLists",
-                "After removing index 1 (value 20), index 1 now holds 30."
-        ));
-
-        questions.add(new Questions(
-                "What does the following code print?\nDog d = new Dog(\"Rex\", 3);\nSystem.out.println(d.getName());",
-                new String[]{"Rex", "3", "null", "name"},
-                0,
-                "classes",
-                "getName() returns the value of the name field, which is 'Rex'."
-        ));
-
-        questions.add(new Questions(
-                "Which statement about instance variables is true?",
-                new String[]{
-                        "They must be declared inside a method.",
-                        "They can only be modified inside constructors.",
-                        "They are declared inside a class but outside methods.",
-                        "They must be public."
-                },
-                2,
-                "classes",
-                "Instance variables belong to the object and are declared in the class body."
-        ));
-
-    }
-
-    public ArrayList<Questions> getQuestionsByTopic(String topic)
-    {
-        ArrayList<Questions> result;
-        result = new ArrayList<Questions>();
-
-        for(Questions q: questions){
-
-    private void loadQuestions(){
-
-        // ARRAYS (3 questions)
-        questions.add(new Questions("What is the first element is a java Array?",
-                new String[]{"0", "1,", "-1", "It Depends"}, 0, "arrays",
-                "Java arrays are zero-based, so the first index is 0"));
-
-        questions.add(new Questions("What does the length field of an array represent?",
-                new String[]{"The last index in the array", "The number of elements in the array", "The size of memory in bytes", "How many elements are currently used"}, 1, "arrays",
-                "For a Java array, length gives the total number of elements it can hold."));
-
-        questions.add(new Questions("Which of the following correctly declares an int array of size 10?",
-                new String[]{
-                        "int[] nums = new int[10];",
-                        "int nums = new int(10);",
-                        "int[10] nums;",
-                        "array int nums = 10;"
-                }, 0, "arrays",
-                "The correct syntax is int[] nums = new int[10]; to create an array of 10 ints."));
-
-        // LOOPS (3 questions)
-        questions.add(new Questions("Which loop is best when you know exactly how many times you want to repeat something?",
-                new String[]{"for loop", "while loop", "do-while loop", "enhanced for loop"}, 0, "loops",
-                "A for loop is typically used when you know the number of iterations in advance."));
-
-        questions.add(new Questions("What is the main difference between a while loop and a do-while loop?",
-                new String[]{
-                        "while always runs once, do-while might not run",
-                        "do-while always runs at least once, while might not run at all",
-                        "They are exactly the same",
-                        "do-while can only count down"
-                }, 1, "loops",
-                "A do-while loop checks the condition after running the body, so it runs at least once."));
-
-        questions.add(new Questions("What is the typical purpose of i++ in a for loop like for (int i = 0; i < 10; i++)?",
-                new String[]{
-                        "To reset i to 0",
-                        "To decrease i each time",
-                        "To increase i so the loop eventually stops",
-                        "To check the loop condition"
-                }, 2, "loops",
-                "i++ increments the loop variable so that eventually the condition becomes false and the loop ends."));
-
-        // CONDITIONALS (3 questions)
-        questions.add(new Questions("Which keyword is used to provide an alternative when an if condition is false?",
-                new String[]{"switch", "else", "case", "break"}, 1, "conditionals",
-                "The else keyword lets you run code when the if condition is false."));
-
-        questions.add(new Questions("What type does a condition inside an if statement need to be in Java?",
-                new String[]{"int", "String", "boolean", "double"}, 2, "conditionals",
-                "An if statement requires a boolean expression that is either true or false."));
-
-        questions.add(new Questions("Which is the best construct to test several related conditions, one after another?",
-                new String[]{
-                        "Multiple separate if statements",
-                        "if, else if, else chain",
-                        "Only a while loop",
-                        "A single switch with no cases"
-                }, 1, "conditionals",
-                "An if, else if, else chain cleanly handles multiple related conditions."));
-
-        // ARRAYLISTS (3 questions)
-        questions.add(new Questions("Which import is needed to use ArrayList in Java?",
-                new String[]{
-                        "import java.util.List;",
-                        "import java.util.ArrayList;",
-                        "import java.arraylist.*;",
-                        "No import is needed"
-                }, 1, "arraylists",
-                "ArrayList is in the java.util package, so you import java.util.ArrayList."));
-
-        questions.add(new Questions("Which method adds an element to an ArrayList?",
-                new String[]{"insert()", "push()", "add()", "append()"}, 2, "arraylists",
-                "The add() method is used to insert a new element into an ArrayList."));
-
-        questions.add(new Questions("How do you get the number of elements in an ArrayList called list?",
-                new String[]{
-                        "list.length",
-                        "list.size()",
-                        "list.count()",
-                        "list.getLength()"
-                }, 1, "arraylists",
-                "ArrayList uses the size() method to return how many elements it currently holds."));
-
-        // CLASSES (3 questions)
-        questions.add(new Questions("What is an object in Java?",
-                new String[]{
-                        "A primitive data type",
-                        "A variable that stores only numbers",
-                        "An instance of a class",
-                        "Another name for a method"
-                }, 2, "classes",
-                "An object is a specific instance of a class with its own data and behavior."));
-
-        questions.add(new Questions("What is the purpose of a constructor in a class?",
-                new String[]{
-                        "To destroy objects",
-                        "To initialize a new object",
-                        "To print data",
-                        "To store static methods"
-                }, 1, "classes",
-                "A constructor runs when you create a new object and is used to initialize its fields."));
-
-        questions.add(new Questions("What are fields (also called instance variables) in a class?",
-                new String[]{
-                        "Methods that belong to the class",
-                        "Variables that store the state of an object",
-                        "Loops inside a class",
-                        "Comments describing the class"
-                }, 1, "classes",
-                "Fields are variables that hold the data or state for each object of the class."));
-    }
-
-    public ArrayList<Questions> getQuestionByTopic(String topic){
-
-        ArrayList<Questions> result = new ArrayList<Questions>();
-        for (Questions q : questions){
-            if(topic.equals("all") || q.getTopic().equalsIgnoreCase(topic)){
-                result.add(q);
-            }
-        }
-        return result;
-    }
-    private void loadQuestions()
-    {
-
-        questions.add(new Questions("What is the first element in a Java array?",
-                new String[]{"0","1","-1","It depends"},0,"arrays",
-                "Java arrays are zero-based, so the first index is 0"));
         // =====================
-// Arrays
-// =====================
+        // Arrays
+        // =====================
         questions.add(new Questions(
                 "What is the first element in a Java array?",
-                new String[]{"0","1","-1","It depends"},
+                new String[]{"0", "1", "-1", "It depends"},
                 0,
                 "arrays",
                 "Java arrays are zero-based, so the first index is 0."
@@ -274,7 +42,7 @@ public class QuestionBank {
 
         questions.add(new Questions(
                 "What is the length of the array 'int[] a = {3, 5, 7, 9};'?",
-                new String[]{"3","4","5","It cannot be determined"},
+                new String[]{"3", "4", "5", "It cannot be determined"},
                 1,
                 "arrays",
                 "The array has four elements, so a.length is 4."
@@ -307,12 +75,12 @@ public class QuestionBank {
         ));
 
 
-// =====================
-// Loops
-// =====================
+        // =====================
+        // Loops
+        // =====================
         questions.add(new Questions(
                 "Which loop is best when you know exactly how many times to repeat?",
-                new String[]{"for loop","while loop","do-while loop","enhanced for loop"},
+                new String[]{"for loop", "while loop", "do-while loop", "enhanced for loop"},
                 0,
                 "loops",
                 "A traditional for loop is best when you know the exact number of iterations."
@@ -320,7 +88,7 @@ public class QuestionBank {
 
         questions.add(new Questions(
                 "What does the following code print?\n\nfor (int i = 0; i < 3; i++) {\n    System.out.print(i + \" \");\n}",
-                new String[]{"0 1 2","1 2 3","0 1 2 3","0 2"},
+                new String[]{"0 1 2", "1 2 3", "0 1 2 3", "0 2"},
                 0,
                 "loops",
                 "The loop starts at 0 and runs while i < 3, printing 0, 1, and 2."
@@ -341,7 +109,7 @@ public class QuestionBank {
 
         questions.add(new Questions(
                 "Which loop guarantees the body executes at least once?",
-                new String[]{"for loop","while loop","do-while loop","enhanced for loop"},
+                new String[]{"for loop", "while loop", "do-while loop", "enhanced for loop"},
                 2,
                 "loops",
                 "A do-while loop runs the body first, then checks the condition."
@@ -361,12 +129,12 @@ public class QuestionBank {
         ));
 
 
-// =====================
-// Conditionals
-// =====================
+        // =====================
+        // Conditionals
+        // =====================
         questions.add(new Questions(
                 "Which keyword is used for an alternative condition when the first if is false?",
-                new String[]{"else if","otherwise","switch","case"},
+                new String[]{"else if", "otherwise", "switch", "case"},
                 0,
                 "conditionals",
                 "Use else if to provide another condition if the first if is false."
@@ -374,7 +142,7 @@ public class QuestionBank {
 
         questions.add(new Questions(
                 "Which operator checks if two primitive values are equal?",
-                new String[]{"=","==","!=", ".equals()"},
+                new String[]{"=", "==", "!=", ".equals()"},
                 1,
                 "conditionals",
                 "Use == to compare primitive values for equality."
@@ -382,7 +150,7 @@ public class QuestionBank {
 
         questions.add(new Questions(
                 "What does this code print?\n\nint x = 5;\nif (x > 3 && x < 10) {\n    System.out.println(\"A\");\n} else {\n    System.out.println(\"B\");\n}",
-                new String[]{"A","B","A B","Nothing"},
+                new String[]{"A", "B", "A B", "Nothing"},
                 0,
                 "conditionals",
                 "x is 5, which is between 3 and 10, so it prints \"A\"."
@@ -403,16 +171,16 @@ public class QuestionBank {
 
         questions.add(new Questions(
                 "Which logical operator represents OR in Java?",
-                new String[]{"&&","||","!","&"},
+                new String[]{"&&", "||", "!", "&"},
                 1,
                 "conditionals",
                 "The || operator is the logical OR in Java."
         ));
 
 
-// =====================
-// ArrayLists
-// =====================
+        // =====================
+        // ArrayLists
+        // =====================
         questions.add(new Questions(
                 "Which import is required to use ArrayList?",
                 new String[]{
@@ -479,12 +247,12 @@ public class QuestionBank {
         ));
 
 
-// =====================
-// Classes
-// =====================
+        // =====================
+        // Classes
+        // =====================
         questions.add(new Questions(
                 "What keyword is used to define a new class in Java?",
-                new String[]{"object","class","public","new"},
+                new String[]{"object", "class", "public", "new"},
                 1,
                 "classes",
                 "Use the class keyword to define a new class."
@@ -543,9 +311,9 @@ public class QuestionBank {
         ));
 
 
-// =====================
-// All topics (mixed review)
-// =====================
+        // =====================
+        // All topics (mixed review)
+        // =====================
         questions.add(new Questions(
                 "Which loop is best suited for iterating over all elements of an ArrayList<String> names?",
                 new String[]{
@@ -610,29 +378,28 @@ public class QuestionBank {
                 "all",
                 "ArrayLists are resizable, while arrays have a fixed length."
         ));
-
     }
 
-    public ArrayList<Questions> getQuestionByTopic(String topic)
-    {
+    /**
+     * Returns all questions whose topic matches the given topic (case-insensitive).
+     * If topic is "all", returns every question.
+     */
+    public ArrayList<Questions> getQuestionByTopic(String topic) {
         ArrayList<Questions> result = new ArrayList<Questions>();
-        for(Questions q : questions)
-        {
-            if(topic.equals("all") || q.getTopic().equalsIgnoreCase(topic))
-            {
+
+        for (Questions q : questions) {
+            if ("all".equalsIgnoreCase(topic) ||
+                    q.getTopic().equalsIgnoreCase(topic)) {
                 result.add(q);
             }
-
         }
 
         return result;
     }
-        }
 
-        return result;
-
+    // Optional alias, in case other code calls the plural name
+    public ArrayList<Questions> getQuestionsByTopic(String topic) {
+        return getQuestionByTopic(topic);
     }
-
-
-
 }
+

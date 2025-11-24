@@ -29,20 +29,12 @@ public class Questions {
         return correctIndex;
     }
 
-    public String[] getChoices(){
-        return choices;
-    }
-
     public String getTopic(){
         return topic;
     }
 
     public String getExplanation(){
         return explanation;
-    }
-
-    public boolean isCorrect(int userIndex){
-        return userIndex == correctIndex;
     }
 
     public boolean isCorrect(int userIndex)

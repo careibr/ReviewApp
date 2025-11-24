@@ -97,7 +97,4 @@ public class ReviewAppRunner {
         System.out.println("Score : " + score + "/" + questions.size());
 
     }
-
-
-
 }
